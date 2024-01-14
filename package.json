@@ -1,0 +1,19 @@
+{
+  "name": "baxture-assignment",
+  "version": "1.0.0",
+  "description": "Text-Analysis for Baxture.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node app.js"
+  },
+  "keywords": [
+    "express",
+    "node"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.18.2"
+  }
+}
