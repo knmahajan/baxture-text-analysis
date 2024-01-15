@@ -60,6 +60,7 @@ Configuration steps required for the project.
 List and briefly describe the main routes in your application.
 - `/`: Home route/Basis route
 - `/api/upload`: API Endpoint to upload a text file
+- `/api/initiate-task`: API Endpoint to initiate analysis based on the specified task for the specified fileId
 
 ## Usage
 

@@ -17,4 +17,17 @@ model File {
   fileId     String
   filename   String
   uploadDate DateTime @default(now())
+
+  // Define a relation to the Task model
+  tasks      Task[]
+}
+
+// Descrption of table - Task
+model Task {
+  id       Int      @id @default(autoincrement())
+  taskId   String
+  taskName String
+  value    String   @db.Text
+  file_id  Int      // Foreign key referencing the id column in the File model
+  file     File     @relation(fields: [file_id], references: [id])
 }

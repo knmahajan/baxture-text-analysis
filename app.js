@@ -4,6 +4,9 @@ const prisma = require('./db'); // Importing the Prisma client
 const apiRoutes = require('./routes/apiRoutes');
 const port = process.env.PORT || 3000; // Port at which server will be started and running
 
+// Middleware for parsing request json body
+app.use(express.json())
+
 // Basic route
 app.get('/', (req, res) => {
     res.send('Hello, Baxture!');

@@ -27,6 +27,43 @@ async function createFile(fileId, filename) {
     }
 }
 
+/**
+ * Retrieve file details from the database based on fileId.
+ * @param {string} fileId - The unique identifier for the file.
+ * @returns {Promise} A promise that resolves to the file details.
+ */
+async function getFile(fileId) {
+    const fileDetails = await prisma.file.findFirst({
+        where: {
+            fileId: fileId,
+        },
+    });
+    return fileDetails;
+}
+
+/**
+ * Create a new task record in the database.
+ * @param {string} taskId - The unique identifier for the task.
+ * @param {string} taskName - The name of the task.
+ * @param {string} value - The value associated with the task.
+ * @param {number} fileId - The ID of the associated file.
+ * @returns {Promise} A promise that resolves to the created task record.
+ */
+async function createTask(taskId, taskName, value, fileId) {
+    return prisma.task.create({
+        data: {
+            taskId: taskId,
+            taskName: taskName,
+            value: value,
+            file: {
+                connect: { id: fileId }
+            },
+        },
+    });
+}
+
 module.exports = {
     createFile,
+    getFile,
+    createTask
 };
