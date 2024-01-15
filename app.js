@@ -1,12 +1,16 @@
 const express = require('express');
 const app = express(); // Createing an express app
 const prisma = require('./db'); // Importing the Prisma client
+const apiRoutes = require('./routes/apiRoutes');
 const port = process.env.PORT || 3000; // Port at which server will be started and running
 
 // Basic route
 app.get('/', (req, res) => {
     res.send('Hello, Baxture!');
 });
+
+// Use API routes
+app.use('/api', apiRoutes);
 
 // Close the Prisma client when the server is closed
 app.on('close', () => {

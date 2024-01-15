@@ -41,7 +41,6 @@ Top k words: The {k} most frequent words in the text (k is user provided paramet
     npx prisma migrate dev --name init
     ```
     init - is the name of migration.
-    The app will be available at [http://localhost:3000](http://localhost:3000).
 
 ## Configuration
 
@@ -60,6 +59,7 @@ Configuration steps required for the project.
 
 List and briefly describe the main routes in your application.
 - `/`: Home route/Basis route
+- `/api/upload`: API Endpoint to upload a text file
 
 ## Usage
 
@@ -68,3 +68,5 @@ Describe how to run and use your application.
     ```bash
     npm start
     ```
+
+    The app will be available at [http://localhost:3000](http://localhost:3000).
