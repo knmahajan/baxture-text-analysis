@@ -33,12 +33,17 @@ async function createFile(fileId, filename) {
  * @returns {Promise} A promise that resolves to the file details.
  */
 async function getFile(fileId) {
-    const fileDetails = await prisma.file.findFirst({
-        where: {
-            fileId: fileId,
-        },
-    });
-    return fileDetails;
+    try {
+        const fileDetails = await prisma.file.findFirst({
+            where: {
+                fileId: fileId,
+            },
+        });
+        return fileDetails;
+    } catch (error) {
+        // Handle any errors that occur during the database operation
+        throw error; // Rethrow the error for the calling function to handle
+    }
 }
 
 /**
@@ -50,20 +55,48 @@ async function getFile(fileId) {
  * @returns {Promise} A promise that resolves to the created task record.
  */
 async function createTask(taskId, taskName, value, fileId) {
-    return prisma.task.create({
-        data: {
-            taskId: taskId,
-            taskName: taskName,
-            value: value,
-            file: {
-                connect: { id: fileId }
+    try {
+        return prisma.task.create({
+            data: {
+                taskId: taskId,
+                taskName: taskName,
+                value: value,
+                file: {
+                    connect: { id: fileId }
+                },
             },
-        },
-    });
+        });
+    } catch (error) {
+        // Handle any errors that occur during the database operation
+        throw error; // Rethrow the error for the calling function to handle
+    }
 }
+
+/**
+ * Retrieve task details from the database based on taskId.
+ * @param {string} taskId - The unique identifier for the task.
+ * @returns {Promise} A promise that resolves to the task details.
+ */
+async function getTask(taskId) {
+    try {
+        // Use Prisma to find the first task record in the database
+        const taskDetails = await prisma.task.findFirst({
+            where: {
+                taskId: taskId,
+            },
+        });
+
+        return taskDetails;
+    } catch (error) {
+        // Handle any errors that occur during the database operation
+        throw error; // Rethrow the error for the calling function to handle
+    }
+}
+
 
 module.exports = {
     createFile,
     getFile,
-    createTask
+    createTask,
+    getTask
 };
