@@ -1,0 +1,20 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+// Database Configurations
+datasource db {
+  provider = "mysql"
+  url      = env("DATABASE_URL")
+}
+
+// Descrption of table - File
+model File {
+  id         Int      @id @default(autoincrement())
+  fileId     String
+  filename   String
+  uploadDate DateTime @default(now())
+}

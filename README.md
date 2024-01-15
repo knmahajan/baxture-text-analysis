@@ -7,11 +7,18 @@ Top k words: The {k} most frequent words in the text (k is user provided paramet
 
 ## Table of Contents
 
+- [Prerequisites](#prerequisites)
 - [Installation](#installation)
-- [Usage](#usage)
 - [Configuration](#configuration)
 - [Routes](#routes)
-- [Dependencies](#dependencies)
+- [Usage](#usage)
+
+## Prerequisites
+
+- [Node.js](https://nodejs.org/)
+- [npm](https://www.npmjs.com/)
+- [Express](https://expressjs.com/): Web framework for Node.js
+- [Prisma CLI](https://www.prisma.io/docs/getting-started/installation)
 
 ## Installation
 
@@ -28,30 +35,36 @@ Top k words: The {k} most frequent words in the text (k is user provided paramet
     npm install
     ```
 
-3. **Run the application:**
+3. **Run database migrations:**
 
     ```bash
-    npm start
+    npx prisma migrate dev --name init
     ```
-
+    init - is the name of migration.
     The app will be available at [http://localhost:3000](http://localhost:3000).
-
-## Usage
-
-....
 
 ## Configuration
 
-....
+Configuration steps required for the project.
+
+- Create a `.env` file based on the provided `.env.example`.
+    - In the "DATABASE_URL", edit the following:
+        1. USER: The username of the database user.
+        2. PASSWORD: The password for the database user.
+        3. HOST: The host where the database server is hosted (typically localhost for dev env).
+        4. PORT: The port where the database server is running (typically 3306 for MySQL).
+        5. DATABASE: The name of the database.
+- Configure your Prisma connection details in the `schema.prisma` file.
 
 ## Routes
 
 List and briefly describe the main routes in your application.
+- `/`: Home route/Basis route
 
-- `/`: Home route/ Basis route
+## Usage
 
-## Dependencies
+Describe how to run and use your application.
 
-List the main dependencies used in your project.
-
-- [Express](https://expressjs.com/): Web framework for Node.js
+    ```bash
+    npm start
+    ```
