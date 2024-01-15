@@ -21,6 +21,6 @@ router.post('/upload', upload.single('textFile'), uploadController.uploadFile);
 router.post('/initiate-task', initiateAnalysisController.initiateAnalysis);
 
 // Retrieve Task Analysis Result API
-router.get('/task-analysis-result', retrieveAnalysisController.retrieveAnalysis);
+router.post('/task-analysis-result', retrieveAnalysisController.retrieveAnalysis);
 
 module.exports = router;

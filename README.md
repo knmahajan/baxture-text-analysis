@@ -64,6 +64,10 @@ List and briefly describe the main routes in your application.
 - `/api/initiate-task`: API Endpoint to initiate analysis based on the specified task for the specified fileId
 - `/api/task-analysis-result`: API Endpoint to retrieve the task analysis result based on taskId
 
+### Postman Collection
+
+https://api.postman.com/collections/27231085-0efe45f2-4f8c-44f7-a6fd-6ef6d0d45a7b?access_key=PMAT-01HM6ZKJF00P0ETRGJ8RFDYZGD
+
 ## Usage
 
 Describe how to run and use your application.
